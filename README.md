@@ -22,8 +22,6 @@ step 7: Compile and run the script
 Outputs - Window 3 will display a scattergram of the spark mass vs the local RyR count. This will have excluded sparks which were filtered out with an exclusion criteria (detailed in Hurley et al manuscript)
 	- sparkmass.csv containing a table of RyR counts and fitting parameter for each spark detected in the Ca2+ time series.
 
-
-
 # Copyright Izzy Jayasinghe, 2020
 # i.jayasinghe@leeds.ac.uk
 #

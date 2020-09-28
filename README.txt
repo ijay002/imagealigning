@@ -7,7 +7,8 @@ step 2:	Download and unzip align_sparkmass_github directory
 	- Update string defined as dir in line 1 to the current path containing the files
 	- Update string defined as sr in line 2 to the file name of DNA-PAINT image (2D tiff format)
 	- Update string defined as ca in line 3 to the file name of averaged Ca2+ image (2D tiff format)
-step 4:	(Optional) change the integer number of variable shrink to alter the factor by which the image data will be downsampled for display
+step 4:	(Optional) change the integer number of variable shrink to alter the factor by which the image data will be downsampled for display. 
+	- Shown in red, is the calcium image; shown in green is a downsampled RyR (DNA-PAINT) image.
 step 5: Iteratively run the script 
 	- Each time, update x & y manual shift vectors (in pixels) in variable defined as svec on line 11. Default values optimal for supplied example data. Note that the shift values are sensitive to the shrink factor (defined in step 4)
 	- (Optional) uncomment the command 'end' on line 31 to shortcut the script for this iterative loop

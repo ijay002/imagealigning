@@ -31,6 +31,9 @@ szs=size(sr2,/dim)
 		szfinal[0]=max(szall[*,0])
 		szfinal[1]=max(szall[*,1])
 
+sf=fltarr(szc[0],szc[1],2)
+sf=(rncdf(dir+'sf.nc')/(sscale[0]/0.001));x & y shiftvectors for adjusting Ca2+ spark coordinates relative to DNA-PAINT channel & multiplied by image scale to convert shift vectors from nm to px (comment out if shift vectors not in use)
+
 ;;;;;;;;;;;;;;; RyR coords from DNA-PAINT image;;;;
 wfit,1,cas
 tvscl,cas
@@ -55,6 +58,7 @@ tvscl,vjs,ch=3
 ;;;;;;;;;;;;;; Ca sparks coords from XYspark;;;;;
 
 dotc=rd_tfile(dir+'2019_05_02_BD.txt',10,/convert);read in xy coords ****
+;end
 
 fsz=2.5
 lst=fltarr(n_elements(dotc[0,*]),9)
@@ -63,6 +67,7 @@ for v=0, n_elements(dotc[1,*])-1 do begin
 
 		vc0=fltarr(szc[0],szc[1])
 		vc0[(round(dotc[2,v]*exf)),(round(dotc[3,v]*exf))]=dotc[0,v] ;assigning puncta coordinates to pixels - notice that x and y are flipped to correct for Baddeley rotation convention
+		vc0=shift(vc0,(sf[*,*,0])[where(vc0 eq dotc[0,v])],(sf[*,*,1])[where(vc0 eq dotc[0,v])])
 
 		psf=(bytscl(vgauss([30,30,3],[25.0,25.0,1.0],/fwh)) gt 116)[*,*,1]
 		vc=dilate(vc0 gt 0,psf)
@@ -93,7 +98,6 @@ for v=0, n_elements(dotc[1,*])-1 do begin
 
 		;;;;;;;;
 			coorde=transpose(getxyz(vj2[where(field gt 0)] gt 0))
-			coorde2=transpose(getxyz(vj2[where(dfield gt 0)] gt 0))
 
 		endif
 

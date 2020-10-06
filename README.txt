@@ -1,7 +1,7 @@
 README
 
 Step 1: Unzip lib.zip and copy the lib folder to the main IDL directory
-step 2:	Download and unzip align_sparkmass_github directory
+step 2:	Download and unzip align_sparkmass_github directory: ijayas/imagealigning
 	- Unzip 2019_05_10_H_.zip into the same directory (this is the rendered DNA-PAINT image file required for image alignment
 	- Open script align.pro with idlde.exe
 	- Update string defined as dir in line 1 to the current path containing the files
